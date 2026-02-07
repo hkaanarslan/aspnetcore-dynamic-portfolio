@@ -1,0 +1,26 @@
+﻿@model List<ResumeProjectDemoNight.Entities.Education>
+
+<div class="timeline edu bg-white rounded shadow-dark padding-30 overflow-hidden">
+
+    @foreach (var item in Model)
+    {
+        <div class="timeline-container wow fadeInUp">
+
+            <div class="content">
+                <span class="time">@item.EducationDate</span>
+
+                <h3 class="title">@item.SchoolName</h3>
+
+                <h5 style="color:#6c6ce5">
+                    @item.Department
+                </h5>
+
+                <p>@item.Description</p>
+            </div>
+
+        </div>
+    }
+
+    <span class="line"></span>
+
+</div>

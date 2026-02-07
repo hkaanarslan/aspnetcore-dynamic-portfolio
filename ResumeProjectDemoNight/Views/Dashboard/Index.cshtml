@@ -1,0 +1,109 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 p-6">
+
+    <div class="relative flex items-center justify-between p-6 bg-card-dark border-2 border-primary rounded-2xl shadow-xl hover:scale-105 transition-transform duration-300 group">
+        <div>
+            <p class="text-xs font-bold tracking-widest text-slate-400 uppercase mb-1">TOPLAM PROJE</p>
+            <h2 class="text-4xl font-black text-white">@ViewBag.ProjectCount</h2>
+        </div>
+        <div class="flex items-center justify-center w-16 h-16 bg-primary/10 border border-primary rounded-xl group-hover:bg-primary/20 transition-colors">
+            <span class="material-symbols-outlined text-3xl text-primary">layers</span>
+        </div>
+    </div>
+
+    <div class="relative flex items-center justify-between p-6 bg-card-dark border-2 border-primary rounded-2xl shadow-xl hover:scale-105 transition-transform duration-300 group">
+        <div>
+            <p class="text-xs font-bold tracking-widest text-slate-400 uppercase mb-1">DENEYİMLER</p>
+            <h2 class="text-4xl font-black text-white">@ViewBag.ExperienceCount</h2>
+        </div>
+        <div class="flex items-center justify-center w-16 h-16 bg-primary/10 border border-primary rounded-xl group-hover:bg-primary/20 transition-colors">
+            <span class="material-symbols-outlined text-3xl text-primary">work</span>
+        </div>
+    </div>
+
+    <div class="relative flex items-center justify-between p-6 bg-card-dark border-2 border-primary rounded-2xl shadow-xl hover:scale-105 transition-transform duration-300 group">
+        <div>
+            <p class="text-xs font-bold tracking-widest text-slate-400 uppercase mb-1">EĞİTİM</p>
+            <h2 class="text-4xl font-black text-white">@ViewBag.EducationCount</h2>
+        </div>
+        <div class="flex items-center justify-center w-16 h-16 bg-primary/10 border border-primary rounded-xl group-hover:bg-primary/20 transition-colors">
+            <span class="material-symbols-outlined text-3xl text-primary">school</span>
+        </div>
+    </div>
+
+    <div class="relative flex items-center justify-between p-6 bg-card-dark border-2 border-primary rounded-2xl shadow-xl hover:scale-105 transition-transform duration-300 group">
+        <div>
+            <p class="text-xs font-bold tracking-widest text-slate-400 uppercase mb-1">TOPLAM MESAJLAR</p>
+            <h2 class="text-4xl font-black text-white">@ViewBag.MessageCount</h2>
+        </div>
+        <div class="flex items-center justify-center w-16 h-16 bg-primary/10 border border-primary rounded-xl group-hover:bg-primary/20 transition-colors">
+            <span class="material-symbols-outlined text-3xl text-primary">mail</span>
+        </div>
+    </div>
+
+</div>
+
+<div class="px-6 pb-10">
+    <div class="bg-card-dark border-2 border-primary rounded-2xl p-6 shadow-xl">
+
+        <h3 class="text-white text-lg font-bold mb-6 flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary">mail</span>
+            Son Gelen Mesajlar
+        </h3>
+
+        @if (ViewBag.LastMessages != null)
+        {
+            var messages = ViewBag.LastMessages as List<ResumeProjectDemoNight.Entities.Message>;
+
+            if (messages.Count == 0)
+            {
+                <p class="text-slate-400 text-sm">Henüz mesaj bulunmuyor.</p>
+            }
+            else
+            {
+                <div class="space-y-4">
+                    @foreach (var message in messages)
+                    {
+                        <div class="flex items-center justify-between bg-black/20 border border-white/5 rounded-xl p-4 hover:bg-white/5 transition">
+
+                            <div>
+                                <p class="text-white font-semibold">
+                                    @message.NameSurname
+                                </p>
+                                <p class="text-slate-400 text-sm">
+                                    @message.Subject
+                                </p>
+                                <p class="text-slate-500 text-xs mt-1">
+                                    @message.SendDate.ToString("dd.MM.yyyy HH:mm")
+                                </p>
+                            </div>
+
+                            <a href="/Message/Details/@message.MessageId"
+                               class="px-3 py-1.5 bg-primary/90 hover:bg-primary text-white text-xs rounded-lg transition">
+                                Gör
+                            </a>
+
+                        </div>
+                    }
+                </div>
+            }
+        }
+    </div>
+</div>
+
+
+<div class="px-6 pb-6">
+    <div class="bg-card-dark border border-slate-800 rounded-2xl p-6">
+        <h3 class="text-white text-lg font-bold mb-4 flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary">analytics</span>
+            Site İstatistik Özeti
+        </h3>
+        <p class="text-slate-400 text-sm">
+            Admin paneline hoş geldin. Yukarıdaki kartlardan hızlı istatistikleri görebilirsin.
+        </p>
+    </div>
+</div>

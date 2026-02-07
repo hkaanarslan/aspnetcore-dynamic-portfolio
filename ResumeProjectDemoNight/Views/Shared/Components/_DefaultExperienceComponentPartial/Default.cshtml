@@ -1,0 +1,25 @@
+﻿@model List<ResumeProjectDemoNight.Entities.Experience>
+
+<div class="timeline exp bg-white rounded shadow-dark padding-30 overflow-hidden">
+
+    @foreach (var item in Model)
+    {
+        <div class="timeline-container wow fadeInUp">
+
+            <div class="content">
+                <span class="time">@item.WorkPeriodDate</span>
+                <h3 class="title">@item.Title</h3>
+
+                <h5 style="color:#6c6ce5">
+                    @item.CompanyName
+                </h5>
+
+                <p>@item.Description</p>
+            </div>
+
+        </div>
+    }
+
+    <span class="line"></span>
+
+</div>

@@ -1,0 +1,52 @@
+﻿@model ResumeProjectDemoNight.Entities.Skill
+
+@{
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    ViewData["Title"] = "Beceri Ekle";
+}
+
+<div class="max-w-4xl mx-auto">
+
+    <div class="admin-card p-10 border border-primary/40 rounded-3xl">
+
+        <h1 class="text-2xl font-bold text-white mb-8">
+            Yeni Beceri Ekle
+        </h1>
+
+        <form method="post" class="space-y-6">
+
+            <div>
+                <label class="text-slate-300 font-semibold text-sm mb-2 block">
+                    Beceri Adı
+                </label>
+                <input asp-for="SkillName"
+                       class="w-full px-5 py-3 rounded-xl bg-background-dark border border-white/10 text-white focus:ring-2 focus:ring-primary outline-none" />
+            </div>
+
+            <div>
+                <label class="text-slate-300 font-semibold text-sm mb-2 block">
+                    Seviye (%)
+                </label>
+                <input asp-for="Value" type="number" min="0" max="100"
+                       class="w-full px-5 py-3 rounded-xl bg-background-dark border border-white/10 text-white focus:ring-2 focus:ring-primary outline-none" />
+            </div>
+
+            <div class="pt-6 flex justify-end gap-4 border-t border-white/10">
+
+                <a href="/Skill/Index"
+                   class="px-6 py-3 rounded-xl bg-white/5 text-slate-300 hover:bg-white/10 transition">
+                    Vazgeç
+                </a>
+
+                <button type="submit"
+                        class="px-8 py-3 rounded-xl bg-primary text-white font-bold hover:scale-[1.02] transition shadow-lg shadow-primary/30">
+                    Kaydet
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>

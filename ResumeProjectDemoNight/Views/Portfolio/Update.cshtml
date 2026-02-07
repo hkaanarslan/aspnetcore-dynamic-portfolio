@@ -1,0 +1,71 @@
+﻿@model ResumeProjectDemoNight.Entities.Portfolio
+@{
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    ViewData["Title"] = "Projeyi Güncelle";
+}
+
+<div class="flex-1 p-8">
+    <div class="max-w-3xl mx-auto bg-card-dark border-2 border-primary
+                rounded-2xl p-8 shadow-[0_0_40px_rgba(255,140,0,0.35)]">
+
+        <h3 class="text-2xl font-bold text-white mb-6">Projeyi Güncelle</h3>
+
+        <!-- 🔴 HATA MESAJI -->
+        @if (ViewBag.Error != null)
+        {
+            <div class="mb-6 bg-red-500/10 border border-red-500/30
+                            text-red-400 px-4 py-3 rounded-xl">
+                @ViewBag.Error
+            </div>
+        }
+
+        <form method="post" class="space-y-6">
+
+            <input type="hidden" asp-for="PortfolioId" />
+
+            <!-- PROJE BAŞLIĞI -->
+            <div>
+                <label class="block text-sm font-semibold text-slate-300 mb-2">
+                    Proje Başlığı
+                </label>
+                <input asp-for="ProjectTitle"
+                       class="w-full px-4 py-3 rounded-lg bg-black/30
+                              border border-white/10 text-white" />
+            </div>
+
+            <!-- KATEGORİ -->
+            <div>
+                <label class="block text-sm font-semibold text-slate-300 mb-2">
+                    Kategori
+                </label>
+                <input asp-for="CategoryName"
+                       class="w-full px-4 py-3 rounded-lg bg-black/30
+                              border border-white/10 text-white" />
+            </div>
+
+            <!-- GÖRSEL URL -->
+            <div>
+                <label class="block text-sm font-semibold text-slate-300 mb-2">
+                    Görsel URL
+                </label>
+                <input asp-for="ImageUrl"
+                       class="w-full px-4 py-3 rounded-lg bg-black/30
+                              border border-white/10 text-white" />
+            </div>
+
+            <!-- AKTİF / PASİF -->
+            <div class="flex items-center gap-2">
+                <input asp-for="Status" type="checkbox" />
+                <label class="text-slate-300">
+                    Aktif
+                </label>
+            </div>
+
+            <button class="w-full bg-primary py-3 rounded-lg
+                           font-bold text-white">
+                Güncelle
+            </button>
+
+        </form>
+    </div>
+</div>

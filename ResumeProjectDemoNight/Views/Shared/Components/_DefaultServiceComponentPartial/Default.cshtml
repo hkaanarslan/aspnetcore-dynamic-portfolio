@@ -1,0 +1,50 @@
+﻿@model List<ResumeProjectDemoNight.Entities.Service>
+
+<section id="services">
+    <div class="container">
+
+        <h2 class="section-title wow fadeInUp">Hizmetlerim</h2>
+        <div class="spacer" data-height="60"></div>
+
+        <div class="row justify-content-center">
+
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4 col-md-6 col-sm-12 d-flex mb-4">
+
+                    <div class="service-box service-fix-card
+                                    rounded data-background
+                                    padding-30 text-center text-light
+                                    shadow-blue w-100 d-flex flex-column justify-content-between"
+                         data-color="#FF8C00">
+
+                        <div>
+                            <img src="@item.ImageURL"
+                                 class="service-fix-icon mb-4"
+                                 alt="@item.Title" />
+
+                            <h3 class="mb-3">
+                                @item.Title
+                            </h3>
+
+                            <p>
+                                @item.Description
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+            }
+
+        </div>
+
+        <div class="mt-5 text-center">
+            <p class="mb-0">
+                Bir projeniz mi var?
+                <a href="#contact">Buradan</a> bana yazın! 👋
+            </p>
+        </div>
+
+    </div>
+</section>

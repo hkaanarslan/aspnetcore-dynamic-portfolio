@@ -1,0 +1,67 @@
+﻿<section id="contact" class="modern-contact">
+
+    <div class="container">
+
+        <h2 class="section-title wow fadeInUp">Bana Yazın!</h2>
+        <div class="spacer" data-height="60"></div>
+
+        <div class="modern-contact-card">
+
+            <div class="row align-items-center">
+
+                <!-- SOL -->
+                <div class="col-md-5 modern-contact-left">
+
+                    <h3>Birlikte Harika İşler Yapabiliriz 🚀</h3>
+
+                    <p>
+                        Aklınızdaki projeyi konuşalım. Size en uygun çözümü birlikte bulalım.
+                    </p>
+
+                    <ul>
+                        <li>📧 harunkaanarslan@outlook.com</li>
+                        <li>🌍 Türkiye</li>
+                        <li>💻 Full Stack Developer</li>
+                    </ul>
+
+                </div>
+
+                <!-- SAĞ -->
+                <div class="col-md-7">
+
+                    <form method="post"
+                          asp-controller="Message"
+                          asp-action="SendMessage"
+                          class="modern-contact-form">
+
+                        <input type="text"
+                               name="NameSurname"
+                               placeholder="Ad Soyad" />
+
+                        <input type="email"
+                               name="Email"
+                               placeholder="E-posta" />
+
+                        <input type="text"
+                               name="Subject"
+                               placeholder="Konu" />
+
+                        <textarea name="MessageDetail"
+                                  rows="5"
+                                  placeholder="Mesajınızı yazın..."></textarea>
+
+                        <button type="submit">
+                            Mesaj Gönder
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>

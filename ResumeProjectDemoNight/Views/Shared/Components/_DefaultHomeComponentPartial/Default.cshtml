@@ -1,0 +1,161 @@
+﻿@model ResumeProjectDemoNight.Models.HomeViewModel
+
+<!-- section home -->
+<section id="home" class="home d-flex align-items-center">
+    <div class="container">
+
+        <!-- intro -->
+        <div class="intro">
+
+            <!-- avatar image -->
+            <img src="@Model.About.ImageUrl" alt="Profile Image" class="mb-4" />
+
+            <!-- info -->
+            <h1 class="mb-2 mt-0">
+                @Model.About.NameSurname
+            </h1>
+
+            <span>
+                
+                <span class="text-rotating">
+                    @Model.About.Description
+                </span>
+            </span>
+
+            <!-- social icons -->
+            <ul class="social-icons light list-inline mb-0 mt-4">
+                @foreach (var item in Model.SocialMedias)
+                {
+                    <li class="list-inline-item">
+                        <a href="@item.Url" target="_blank">
+                            <i class="@item.Icon"></i>
+                        </a>
+                    </li>
+                }
+            </ul>
+
+            <!-- buttons -->
+            <div class="mt-4">
+                <a href="#contact" class="btn btn-default">Bana Yazın!</a>
+            </div>
+
+        </div>
+
+        <!-- scroll down mouse wheel -->
+        <div class="scroll-down">
+            <a href="#about" class="mouse-wrapper">
+                <span>Aşağı Kaydır</span>
+                <span class="mouse">
+                    <span class="wheel"></span>
+                </span>
+            </a>
+        </div>
+
+        <!-- parallax layers -->
+        <div class="parallax" data-relative-input="true">
+
+            <svg width="27" height="29" data-depth="0.3" class="layer p1"
+                 xmlns="http://www.w3.org/2000/svg">
+                <path d="M21.15625.60099c4.37954 3.67487
+                6.46544 9.40612 5.47254 15.03526
+                -.9929 5.62915-4.91339 10.30141
+                -10.2846 12.25672-5.37122
+                1.9553-11.3776.89631
+                -15.75715-2.77856l2.05692
+                -2.45134c3.50315
+                2.93948 8.3087
+                3.78663 12.60572
+                2.22284 4.297
+                -1.5638 7.43381
+                -5.30209 8.22768
+                -9.80537.79387
+                -4.50328-.8749
+                -9.08872-4.37803
+                -12.02821L21.15625.60099z"
+                      fill="#FFB042"
+                      fill-rule="evenodd" />
+            </svg>
+
+            <svg width="26" height="26" data-depth="0.2" class="layer p2"
+                 xmlns="http://www.w3.org/2000/svg">
+                <path d="M13 3.3541L2.42705 24.5
+                h21.1459L13 3.3541z"
+                      stroke="#FF8C00"
+                      stroke-width="3"
+                      fill="none"
+                      fill-rule="evenodd" />
+            </svg>
+
+            <svg width="30" height="25" data-depth="0.3" class="layer p3"
+                 xmlns="http://www.w3.org/2000/svg">
+                <path d="M.1436 8.9282
+                C3.00213 3.97706
+                8.2841.92763
+                14.00013.92796
+                5.71605.00032
+                10.9981 3.04992
+                13.85641 8
+                2.8583 4.95007
+                2.8584 11.0491
+                -.00014 16.00024
+                l-2.77128-1.6
+                c2.28651-3.96036
+                2.28631-8.84002
+                .00011-12.8002
+                -2.2862-3.96017
+                -6.5124-6.40017
+                -11.08513-6.4
+                -4.57271.00018
+                -8.79872 2.43984
+                -11.08524 6.4002
+                l-2.77128-1.6z"
+                      fill="#44D7B6"
+                      fill-rule="evenodd" />
+            </svg>
+
+            <svg width="15" height="23" data-depth="0.6" class="layer p4"
+                 xmlns="http://www.w3.org/2000/svg">
+                <rect transform="rotate(30 9.86603 10.13397)"
+                      x="7" width="3" height="25"
+                      rx="1.5"
+                      fill="#FFB042"
+                      fill-rule="evenodd" />
+            </svg>
+
+            <svg width="15" height="23" data-depth="0.2" class="layer p5"
+                 xmlns="http://www.w3.org/2000/svg">
+                <rect transform="rotate(30 9.86603 10.13397)"
+                      x="7" width="3" height="25"
+                      rx="1.5"
+                      fill="#6C6CE5"
+                      fill-rule="evenodd" />
+            </svg>
+
+            <svg width="49" height="17" data-depth="0.5" class="layer p6"
+                 xmlns="http://www.w3.org/2000/svg">
+                <g fill="#FF8C00" fill-rule="evenodd">
+                    <path d="M.5 16.5c0-5.71709
+                    2.3825-10.99895
+                    6.25-13.8567
+                    3.8675-2.85774
+                    8.6325-2.85774
+                    12.5 0
+                    C23.1175 5.50106
+                    25.5 10.78292
+                    25.5 16.5H23
+                    c0-4.57303
+                    -1.90625-8.79884
+                    -5-11.08535
+                    -3.09375-2.28652
+                    -6.90625-2.28652
+                    -10 0
+                    -3.09375 2.28652
+                    -5 6.51232
+                    -5 11.08535H.5z" />
+                </g>
+            </svg>
+
+        </div>
+
+    </div>
+</section>

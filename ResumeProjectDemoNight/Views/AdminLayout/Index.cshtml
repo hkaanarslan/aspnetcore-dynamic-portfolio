@@ -1,0 +1,226 @@
+﻿@using ResumeProjectDemoNight.Context
+
+@{
+    Layout = null;
+
+    ResumeContext context = new ResumeContext();
+
+    var unreadMessageCount = context.Messages.Count(x => x.IsRead == false);
+
+    // ✅ SADECE AKTİF PROJELER
+    var totalProjectCount = context.Portfolios
+        .Where(x => x.Status == true)
+        .Count();
+
+    var adminInfo = context.Abouts.FirstOrDefault();
+}
+
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Admin Paneli</title>
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="~/templates/assets/css/icons.css" />
+
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#ff8c00",
+                        "background-dark": "#1a1a2e",
+                        "sidebar-dark": "#16213e",
+                        "card-dark": "#16213e",
+                        "background-light": "#f6f7f8",
+                    },
+                    fontFamily: {
+                        sans: ['Rubik', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .admin-card {
+            background: #16213e;
+            border-radius: 20px;
+            border: 2px solid #ff8c00;
+            box-shadow: 0 0 0 1px rgba(255,140,0,.25), 0 0 40px rgba(255,140,0,.15);
+        }
+
+        body {
+            font-family: 'Rubik', sans-serif;
+        }
+
+        .sidebar-item-active {
+            background-color: rgba(255, 140, 0, 0.1);
+            border-right: 3px solid #ff8c00;
+            color: #ffffff !important;
+        }
+
+            .sidebar-item-active span {
+                color: #ff8c00 !important;
+            }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #1a1a2e;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #2d2d44;
+            border-radius: 4px;
+        }
+
+            ::-webkit-scrollbar-thumb:hover {
+                background: #ff8c00;
+            }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 flex min-h-screen overflow-hidden">
+
+    <!-- SIDEBAR -->
+    <aside class="w-64 bg-sidebar-dark border-r border-white/5 fixed inset-y-0 left-0 z-50 flex flex-col shadow-2xl">
+
+        <div class="p-6 flex items-center gap-3 border-b border-white/5">
+            <div class="size-10 bg-primary/10 border border-primary/50 rounded-xl flex items-center justify-center shadow-[0_0_15px_rgba(255,140,0,0.2)]">
+                <span class="material-symbols-outlined text-primary">terminal</span>
+            </div>
+            <div>
+                <h1 class="text-white text-lg font-bold tracking-wide">Admin Panel</h1>
+                <p class="text-slate-400 text-[10px] uppercase tracking-widest">Yönetim Paneli</p>
+            </div>
+        </div>
+
+        <nav class="flex-1 px-3 py-4 space-y-1 overflow-y-auto">
+
+            <a href="/Dashboard" class="flex items-center gap-3 px-3 py-3 rounded-lg text-slate-400 hover:bg-white/5 hover:text-white transition-all">
+                <span class="material-symbols-outlined">dashboard</span>
+                <span class="font-medium">Dashboard</span>
+            </a>
+
+            <a href="/About/Index" class="flex items-center gap-3 px-3 py-3 rounded-lg text-slate-400 hover:bg-white/5 hover:text-white transition-all">
+                <span class="material-symbols-outlined">person</span>
+                <span class="font-medium">Hakkımda</span>
+            </a>
+
+            <a href="/Statistic/Index" class="flex items-center gap-3 px-3 py-3 rounded-lg text-slate-400 hover:bg-white/5">
+                <span class="material-symbols-outlined">analytics</span>
+                <span>İstatistikler</span>
+            </a>
+
+            <a href="/Skill/Index" class="flex items-center gap-3 px-3 py-3 rounded-lg text-slate-400 hover:bg-white/5">
+                <span class="material-symbols-outlined">psychology</span>
+                <span>Becerilerim</span>
+            </a>
+
+            <a href="/Service/Index" class="flex items-center gap-3 px-3 py-3 rounded-lg text-slate-400 hover:bg-white/5">
+                <span class="material-symbols-outlined">design_services</span>
+                <span>Hizmetlerim</span>
+            </a>
+
+            <a href="/Experience/Index" class="flex items-center gap-3 px-3 py-3 rounded-lg text-slate-400 hover:bg-white/5">
+                <span class="material-symbols-outlined">work</span>
+                <span>Deneyimler</span>
+            </a>
+
+            <a href="/Education/Index" class="flex items-center gap-3 px-3 py-3 rounded-lg text-slate-400 hover:bg-white/5">
+                <span class="material-symbols-outlined">school</span>
+                <span>Eğitim</span>
+            </a>
+
+            <a href="/Portfolio/Index" class="flex items-center gap-3 px-3 py-3 rounded-lg text-slate-400 hover:bg-white/5">
+                <span class="material-symbols-outlined">layers</span>
+                <span>Projeler</span>
+            </a>
+
+            <a href="/Testimonial/Index" class="flex items-center gap-3 px-3 py-3 rounded-lg text-slate-400 hover:bg-white/5">
+                <span class="material-symbols-outlined">rate_review</span>
+                <span>Müşteri Yorumları</span>
+            </a>
+
+            <a href="/Message/Index" class="flex items-center gap-3 px-3 py-3 rounded-lg text-slate-400 hover:bg-white/5">
+                <span class="material-symbols-outlined">mail</span>
+                <span>Mesajlar</span>
+            </a>
+
+        </nav>
+
+        <div class="p-4 border-t border-white/5">
+            <a href="/Default/Index" class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-400 hover:text-primary hover:bg-primary/5 transition-all text-sm">
+                <span class="material-symbols-outlined text-[20px]">logout</span>
+                Siteye Dön
+            </a>
+        </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="ml-64 flex-1 flex flex-col min-h-screen relative">
+
+        <header class="h-20 border-b border-white/5 bg-background-dark/95 backdrop-blur-md flex items-center justify-between px-8 sticky top-0 z-40 shadow-sm">
+
+            <h2 class="text-white text-xl font-bold tracking-tight">
+                @ViewData["Title"]
+            </h2>
+
+            <div class="flex items-center gap-6">
+
+                <!-- PROJE SAYISI -->
+                <a href="/Portfolio/Index" class="relative p-2 text-slate-400 hover:text-primary transition-colors">
+                    <span class="material-symbols-outlined">folder</span>
+                    <span class="absolute top-1 right-1 bg-primary text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">
+                        @totalProjectCount
+                    </span>
+                </a>
+
+                <!-- MESAJ SAYISI -->
+                <a href="/Message/Index" class="relative p-2 text-slate-400 hover:text-primary transition-colors">
+                    <span class="material-symbols-outlined">notifications</span>
+                    @if (unreadMessageCount > 0)
+                    {
+                        <span class="absolute top-1 right-1 bg-primary text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">
+                            @unreadMessageCount
+                        </span>
+                    }
+                </a>
+
+                <!-- ADMIN -->
+                <div class="flex items-center gap-4 pl-6 border-l border-white/10">
+                    <div class="text-right hidden md:block">
+                        <p class="text-white text-sm font-bold">
+                            @adminInfo?.NameSurname
+                        </p>
+                        <p class="text-slate-500 text-xs">
+                            Super Admin
+                        </p>
+                    </div>
+
+                    <div class="size-11 rounded-full border-2 border-primary/80 p-0.5">
+                        <div class="w-full h-full rounded-full bg-cover bg-center"
+                             style="background-image:url('@adminInfo?.ImageUrl');">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </header>
+
+        <div class="flex-1 p-8 overflow-y-auto">
+            @RenderBody()
+        </div>
+
+    </main>
+</body>
+</html>

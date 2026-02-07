@@ -1,0 +1,73 @@
+﻿@model ResumeProjectDemoNight.Entities.Message
+@{
+    ViewData["Title"] = "Mesaj Detayı";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="max-w-4xl mx-auto
+            bg-card-dark
+            border-2 border-primary
+            rounded-2xl
+            shadow-[0_0_0_2px_rgba(255,140,0,0.25),0_0_35px_rgba(255,140,0,0.35)]">
+
+    <!-- MAIL HEADER -->
+    <div class="px-6 py-5 border-b border-white/10 flex items-center justify-between">
+        <div>
+            <h2 class="text-xl font-bold text-white">
+                @Model.Subject
+            </h2>
+            <p class="text-slate-400 text-sm mt-1">
+                @Model.SendDate.ToString("dd.MM.yyyy HH:mm")
+            </p>
+        </div>
+
+        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs
+                     @(Model.IsRead
+                                      ? "bg-slate-700 text-slate-300"
+                                      : "bg-primary text-white shadow-[0_0_12px_rgba(255,140,0,0.5)]")">
+            @(Model.IsRead ? "Okundu" : "Yeni")
+        </span>
+    </div>
+
+    <!-- MAIL META -->
+    <div class="px-6 py-4 border-b border-white/10 text-sm text-slate-300 space-y-1">
+        <p>
+            <span class="text-slate-500">Gönderen:</span>
+            <span class="font-medium text-white">@Model.NameSurname</span>
+        </p>
+        <p>
+            <span class="text-slate-500">E-posta:</span>
+            <a href="mailto:@Model.Email"
+               class="text-primary hover:underline">
+                @Model.Email
+            </a>
+        </p>
+    </div>
+
+    <!-- MAIL BODY -->
+    <div class="px-6 py-6 text-slate-200 leading-relaxed whitespace-pre-line">
+        @Model.MessageDetail
+    </div>
+
+    <!-- FOOTER -->
+    <div class="px-6 py-4 border-t border-white/10 flex justify-between">
+
+        <a href="/Message/Index"
+           class="px-4 py-2 rounded-lg
+                  bg-white/5 hover:bg-white/10
+                  text-slate-300 hover:text-white transition">
+            ← Mesajlara Dön
+        </a>
+
+        <a href="mailto:@Model.Email"
+           class="px-4 py-2 rounded-lg
+                  bg-primary hover:bg-primary/90
+                  text-white
+                  shadow-[0_0_15px_rgba(255,140,0,0.45)]
+                  transition">
+            Yanıtla
+        </a>
+
+    </div>
+
+</div>

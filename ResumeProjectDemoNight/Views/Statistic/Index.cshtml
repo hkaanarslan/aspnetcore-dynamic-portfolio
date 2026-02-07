@@ -1,0 +1,72 @@
+﻿@model List<ResumeProjectDemoNight.Entities.Statistic>
+
+@{
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    ViewData["Title"] = "İstatistikler";
+}
+
+<div class="max-w-7xl mx-auto">
+
+    <!-- PAGE TITLE -->
+    <div class="mb-10">
+        <h1 class="text-3xl font-bold text-white">
+            Dashboard İstatistikleri
+        </h1>
+        <p class="text-slate-400 text-sm mt-1">
+            Sitede kullanılan istatistiksel verilerin yönetimi
+        </p>
+    </div>
+
+    <!-- STATISTICS GRID -->
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
+
+        @foreach (var item in Model)
+        {
+            <div class="admin-card p-6 border border-primary/40 rounded-2xl
+                            hover:border-primary transition flex flex-col">
+
+                <!-- ICON + TITLE -->
+                <div class="flex items-center gap-4 mb-6">
+
+                    <span class="material-symbols-outlined">analytics</span>
+
+
+
+                    <div>
+                        <p class="text-slate-400 text-xs uppercase tracking-wider">
+                            İstatistik
+                        </p>
+                        <p class="text-white font-semibold text-base">
+                            @item.Title
+                        </p>
+                    </div>
+
+                </div>
+
+                <!-- VALUE -->
+                <div class="text-5xl font-extrabold text-white tracking-tight mb-8">
+                    @item.Value
+                </div>
+
+                <!-- ACTION -->
+                <a href="/Statistic/Update/@item.StatisticId"
+                   class="inline-flex items-center gap-2
+                              px-5 py-2.5 rounded-lg
+                              bg-primary text-white
+                              text-sm font-semibold
+                              hover:opacity-90 transition
+                              self-start">
+
+                    <span class="material-symbols-outlined text-[18px]">
+                        edit
+                    </span>
+
+                    Güncelle
+                </a>
+
+            </div>
+        }
+
+    </div>
+
+</div>

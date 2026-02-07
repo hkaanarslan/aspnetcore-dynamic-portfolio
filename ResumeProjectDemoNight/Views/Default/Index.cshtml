@@ -1,0 +1,73 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en-US">
+
+@await Component.InvokeAsync("_DefaultHeadComponentPartial")
+
+<body>
+
+    <!-- Preloader -->
+    @await Component.InvokeAsync("_DefaultPreloaderComponentPartial")
+
+    <!-- Sidebar -->
+    @await Component.InvokeAsync("_DefaultSidebarComponentPartial")
+
+    <!-- Main Content -->
+    <main class="content">
+
+        <!-- HOME -->
+        @await Component.InvokeAsync("_DefaultHomeComponentPartial")
+
+        <!-- ABOUT -->
+        @await Component.InvokeAsync("_DefaultAboutComponentPartial")
+
+        <!-- SERVICES -->
+        @await Component.InvokeAsync("_DefaultServiceComponentPartial")
+
+        <!-- EXPERIENCE & EDUCATION -->
+        <section id="experience">
+
+            <div class="container">
+
+                <h2 class="section-title wow fadeInUp">Deneyimlerim</h2>
+
+                <div class="spacer" data-height="60"></div>
+
+                <div class="row">
+
+                    <!-- EXPERIENCE (SOL) -->
+                    <div class="col-md-6">
+                        @await Component.InvokeAsync("_DefaultExperienceComponentPartial")
+                    </div>
+
+                    <!-- EDUCATION (SAĞ) -->
+                    <div class="col-md-6">
+                        @await Component.InvokeAsync("_DefaultEducationComponentPartial")
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+        <!-- PORTFOLIO -->
+        @await Component.InvokeAsync("_DefaultPortfolioComponentPartial")
+
+        <!-- TESTIMONIAL -->
+        @await Component.InvokeAsync("_DefaultTestimonialComponentPartial")
+
+        <!-- CONTACT -->
+        @await Component.InvokeAsync("_DefaultContactComponentPartial")
+
+        <!-- SCRIPTS -->
+        @await Component.InvokeAsync("_DefaultScriptsComponentPartial")
+
+    </main>
+
+</body>
+</html>

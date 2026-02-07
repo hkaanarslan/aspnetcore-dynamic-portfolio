@@ -1,0 +1,43 @@
+﻿@model List<ResumeProjectDemoNight.Entities.Testimonial>
+
+<section id="testimonials" class="my-testimonials">
+    <div class="container">
+
+        <h2 class="section-title wow fadeInUp">
+            Müşteri Yorumları & Referanslarım
+        </h2>
+
+        <div class="spacer" data-height="60"></div>
+
+        <div class="testimonials-wrapper slick-slider">
+
+            @foreach (var item in Model)
+            {
+                <div class="testimonial-item">
+
+                    <div class="testimonial-header">
+
+                        <div class="thumb">
+                            <img src="@item.ImageUrl" alt="@item.NameSurname" />
+                        </div>
+
+                        <div class="info">
+                            <h4>@item.NameSurname</h4>
+                            <span class="subtitle">@item.Title</span>
+                        </div>
+
+                    </div>
+
+                    <div class="testimonial-body">
+                        <p>
+                            “@item.Comment”
+                        </p>
+                    </div>
+
+                </div>
+            }
+
+        </div>
+
+    </div>
+</section>

@@ -1,0 +1,269 @@
+﻿/* ===============================
+   CONTACT SECTION FIX
+================================ */
+
+.modern-contact {
+    padding-bottom: 160px;
+}
+
+    .modern-contact * {
+        box-sizing: border-box;
+    }
+
+/* CARD */
+.modern-contact-card {
+    background: #fff;
+    border-radius: 36px;
+    padding: 80px;
+    box-shadow: 0 40px 120px rgba(0,0,0,.08);
+}
+
+/* LEFT */
+.modern-contact-left h3 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.modern-contact-left p {
+    color: #6b6b8e;
+    line-height: 1.8;
+    margin-bottom: 35px;
+}
+
+.modern-contact-left ul {
+    list-style: none;
+    padding: 0;
+}
+
+.modern-contact-left li {
+    margin-bottom: 14px;
+    font-size: 16px;
+}
+
+/* FORM */
+.modern-contact-form input,
+.modern-contact-form textarea {
+    width: 100%;
+    padding: 18px 22px;
+    margin-bottom: 20px;
+    border-radius: 18px;
+    border: none;
+    background: #f4f5ff;
+    font-size: 15px;
+}
+
+    .modern-contact-form input:focus,
+    .modern-contact-form textarea:focus {
+        outline: none;
+        background: #fff;
+        box-shadow: 0 0 0 2px #6c6ce5;
+    }
+
+.modern-contact-form button {
+    background: linear-gradient(135deg,#6c6ce5,#FF8C00);
+    color: #fff;
+    padding: 16px 55px;
+    border-radius: 40px;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    transition: .3s;
+}
+
+    .modern-contact-form button:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 45px rgba(108,108,229,.4);
+    }
+
+/* MOBILE */
+@media (max-width:768px) {
+    .modern-contact-card {
+        padding: 40px 30px;
+    }
+}
+
+/* =========================================================
+   ULTRA DARK ADMIN THEME (SİDEBAR, BODY VE KARTLAR DAHİL)
+   ========================================================= */
+
+/* 1. TÜM SAYFA ZEMİNİ (Burası Admin Panelinin Kök Rengidir) */
+body, .content-wrapper, .main-panel, html {
+    background-color: #000000 !important; /* Tam Siyah Zemin */
+    color: #ffffff !important;
+}
+
+/* 2. DASHBOARD IZGARA YAPISI */
+.ultra-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+    padding: 20px 0;
+}
+
+/* 3. KART TASARIMI (Görünürlüğü Garanti Altına Alınmış) */
+.ultra-card {
+    /* Zemin: Siyahtan ayrılması için koyu gri/lacivert */
+    background: #111111 !important;
+    /* Çerçeve: GÖZÜKMEMESİ İMKANSIZ OLAN TURUNCU ÇİZGİ */
+    border: 3px solid #ff6600 !important;
+    border-radius: 15px !important;
+    padding: 30px !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    /* Kartın parlaması için gölge */
+    box-shadow: 0 0 20px rgba(255, 102, 0, 0.15) !important;
+    transition: all 0.3s ease;
+}
+
+    /* Hover Efekti: Üzerine gelince Çerçeve ve Zemin Parlar */
+    .ultra-card:hover {
+        transform: translateY(-5px);
+        border-color: #ff9900 !important; /* Daha açık turuncu */
+        background: #1a1a1a !important;
+        box-shadow: 0 0 40px rgba(255, 102, 0, 0.4) !important;
+    }
+
+/* 4. YAZI VE İÇERİK AYARLARI */
+.ultra-title {
+    color: #888888 !important; /* Başlık Rengi */
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.ultra-count {
+    color: #ffffff !important; /* Sayı Rengi */
+    font-size: 48px !important;
+    font-weight: 900 !important;
+    line-height: 1;
+    margin: 0;
+}
+
+/* 5. İKON KUTUSU (SAĞ TARAF) */
+.ultra-icon {
+    width: 70px;
+    height: 70px;
+    background: rgba(255, 102, 0, 0.1) !important; /* Şeffaf Turuncu Zemin */
+    border: 2px solid #ff6600 !important; /* İkon Kutusu Çerçevesi */
+    border-radius: 50%; /* Yuvarlak olsun */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .ultra-icon span {
+        font-size: 32px !important;
+        color: #ff6600 !important; /* İkon Rengi */
+    }
+
+/* =========================================
+   EKSTRA: SİDEBAR VE ÜST BAR DÜZELTMELERİ
+   (Admin panelinin geri kalanına da uygular)
+   ========================================= */
+
+/* Sidebar (Yan Menü) Arka Planı */
+.sidebar, .sidebar-wrapper {
+    background: #0a0a0a !important;
+    border-right: 1px solid #333 !important;
+}
+
+/* Sidebar Linkleri */
+.nav-item p, .nav-item i {
+    color: #cccccc !important;
+}
+
+/* Aktif Link (Turuncu Olsun) */
+.nav-item.active i, .nav-item.active p {
+    color: #ff6600 !important;
+}
+
+/* Üst Bar (Navbar) */
+.navbar {
+    background: #0a0a0a !important;
+    border-bottom: 1px solid #333 !important;
+}
+
+/* ============================= */
+/*       SERVICES SECTION        */
+/* ============================= */
+
+.service-card {
+    background: #ffffff;
+    border-radius: 26px;
+    padding: 45px 35px;
+    min-height: 380px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    box-shadow: 0 15px 45px rgba(108, 108, 229, 0.18);
+    transition: all 0.35s ease;
+}
+
+    .service-card:hover {
+        transform: translateY(-12px);
+        box-shadow: 0 30px 70px rgba(108, 108, 229, 0.35);
+    }
+
+/* ICON */
+
+.service-icon {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+    margin-bottom: 28px;
+}
+
+/* TITLE */
+
+.service-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 16px;
+    min-height: 52px; /* 🔥 başlık hizalama */
+}
+
+/* DESCRIPTION */
+
+.service-desc {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #666;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 991px) {
+    .service-card {
+        min-height: auto;
+    }
+}
+.service-fix-card {
+    min-height: 360px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.service-fix-icon {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.service-fix-card h3 {
+    min-height: 60px;
+}
+
+.service-fix-card p {
+    line-height: 1.7;
+}

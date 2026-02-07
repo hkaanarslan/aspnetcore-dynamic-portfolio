@@ -1,0 +1,17 @@
+﻿@model List<ResumeProjectDemoNight.Entities.Category>
+
+<ul class="portfolio-filter list-inline wow fadeInUp">
+
+    <li class="list-inline-item current" data-filter="*">
+        Tümü
+    </li>
+
+    @foreach (var item in Model)
+    {
+        <li class="list-inline-item"
+            data-filter=".@item.CategoryName.Replace(" ", "")">
+            @item.CategoryName
+        </li>
+    }
+
+</ul>

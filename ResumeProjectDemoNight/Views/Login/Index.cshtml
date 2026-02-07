@@ -1,0 +1,97 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html class="dark" lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <title>Admin Giriş</title>
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#ff8c00",
+                        "background-dark": "#1a1a2e",
+                        "card-dark": "#16213e",
+                    },
+                    fontFamily: {
+                        sans: ['Rubik', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="min-h-screen bg-background-dark flex items-center justify-center">
+
+    <div class="w-full max-w-md bg-card-dark border border-white/10 rounded-2xl shadow-2xl p-8">
+
+        <!-- HEADER -->
+        <div class="flex flex-col items-center mb-6">
+            <div class="size-14 bg-primary/10 border border-primary/50 rounded-xl flex items-center justify-center mb-4">
+                <span class="material-symbols-outlined text-primary text-3xl">
+                    lock
+                </span>
+            </div>
+            <h1 class="text-2xl font-bold text-white">
+                Admin Giriş
+            </h1>
+            <p class="text-slate-400 text-sm mt-1">
+                Yönetim paneli
+            </p>
+        </div>
+
+        <!-- HATA MESAJI -->
+        @if (ViewBag.Error != null)
+        {
+            <div class="mb-4 p-3 rounded-lg bg-red-500/10 border border-red-500/40 text-red-400 text-sm text-center">
+                @ViewBag.Error
+            </div>
+        }
+
+        <!-- FORM -->
+        <form method="post" class="space-y-4">
+
+            <div>
+                <label class="block text-slate-400 text-sm mb-1">
+                    Kullanıcı Adı
+                </label>
+                <input type="text" name="Username" required
+                       class="w-full rounded-lg bg-background-dark border border-white/10
+                              text-white focus:border-primary focus:ring-primary" />
+            </div>
+
+            <div>
+                <label class="block text-slate-400 text-sm mb-1">
+                    Şifre
+                </label>
+                <input type="password" name="Password" required
+                       class="w-full rounded-lg bg-background-dark border border-white/10
+                              text-white focus:border-primary focus:ring-primary" />
+            </div>
+
+            <button type="submit"
+                    class="w-full py-3 rounded-lg bg-primary text-white font-semibold hover:bg-primary/90">
+                Giriş Yap
+            </button>
+
+        </form>
+
+        <div class="mt-6 text-center text-xs text-slate-500">
+            © @DateTime.Now.Year
+        </div>
+
+    </div>
+
+</body>
+</html>

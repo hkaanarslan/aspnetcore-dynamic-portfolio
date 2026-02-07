@@ -1,0 +1,103 @@
+﻿@model ResumeProjectDemoNight.Entities.Education
+
+@{
+    ViewData["Title"] = "Yeni Eğitim Ekle";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="flex-1 overflow-y-auto p-8">
+    <div class="max-w-4xl mx-auto space-y-8">
+
+        <!-- BAŞLIK -->
+        <div class="flex items-center justify-between">
+            <div>
+                <h3 class="text-2xl font-bold text-white">Yeni Eğitim Ekle</h3>
+                <p class="text-slate-400 text-sm mt-1">
+                    Eğitim bilgilerinizi aşağıdan sisteme ekleyebilirsiniz.
+                </p>
+            </div>
+
+            <a href="/Education/Index"
+               class="flex items-center gap-2 bg-slate-700 hover:bg-slate-600
+                      text-white px-5 py-2.5 rounded-xl font-bold transition">
+                <span class="material-symbols-outlined">arrow_back</span>
+                Geri Dön
+            </a>
+        </div>
+
+        <!-- FORM KART -->
+        <div class="relative">
+            <div class="absolute inset-0 bg-primary/25 blur-2xl rounded-2xl"></div>
+
+            <div class="relative bg-card-dark border-2 border-primary
+                        rounded-2xl p-8 shadow-[0_0_40px_rgba(255,140,0,.45)]">
+
+                <!-- 🔴 HATA MESAJI -->
+                @if (ViewBag.Error != null)
+                {
+                    <div class="mb-6 bg-red-500/10 border border-red-500/30
+                                    text-red-400 px-5 py-4 rounded-xl font-semibold">
+                        @ViewBag.Error
+                    </div>
+                }
+
+                <form method="post" class="space-y-6">
+                    @Html.AntiForgeryToken()
+
+                    <div>
+                        <label class="block text-slate-300 text-sm font-semibold mb-2">
+                            Okul Adı
+                        </label>
+                        <input asp-for="SchoolName"
+                               placeholder="Örn: İstanbul Üniversitesi"
+                               class="w-full px-5 py-3 rounded-xl bg-slate-900/50
+                                      border border-white/10 text-white focus:ring-2
+                                      focus:ring-primary outline-none" />
+                    </div>
+
+                    <div>
+                        <label class="block text-slate-300 text-sm font-semibold mb-2">
+                            Bölüm
+                        </label>
+                        <input asp-for="Department"
+                               placeholder="Örn: Bilgisayar Mühendisliği"
+                               class="w-full px-5 py-3 rounded-xl bg-slate-900/50
+                                      border border-white/10 text-white focus:ring-2
+                                      focus:ring-primary outline-none" />
+                    </div>
+
+                    <div>
+                        <label class="block text-slate-300 text-sm font-semibold mb-2">
+                            Eğitim Tarihi
+                        </label>
+                        <input asp-for="EducationDate"
+                               placeholder="Örn: 2019 - 2023"
+                               class="w-full px-5 py-3 rounded-xl bg-slate-900/50
+                                      border border-white/10 text-white focus:ring-2
+                                      focus:ring-primary outline-none" />
+                    </div>
+
+                    <div>
+                        <label class="block text-slate-300 text-sm font-semibold mb-2">
+                            Açıklama
+                        </label>
+                        <textarea asp-for="Description"
+                                  rows="5"
+                                  placeholder="Eğitim sürecinizle ilgili kısa bir açıklama"
+                                  class="w-full px-5 py-3 rounded-xl bg-slate-900/50
+                                         border border-white/10 text-white resize-none
+                                         focus:ring-2 focus:ring-primary outline-none"></textarea>
+                    </div>
+
+                    <button type="submit"
+                            class="w-full bg-primary hover:bg-primary/90
+                                   text-white py-3 rounded-xl font-bold
+                                   shadow-lg shadow-primary/30 transition">
+                        Kaydet
+                    </button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
